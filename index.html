@@ -223,15 +223,11 @@ user and predicts the occurrence of diabetics of a person, He also developed his
           bg_css = 'center ' +(multiplier * from_top - offset) + 'px';
         $object.css({"background-position" : bg_css });
       }
-
-      // Parallax function
-      // Adapted based on https://codepen.io/roborich/pen/wpAsm        
+    
       var background_image_parallax = function($object, multiplier, forceSet){
         multiplier = typeof multiplier !== 'undefined' ? multiplier : 0.5;
         multiplier = 1 - multiplier;
         var $doc = $(document);
-        // $object.css({"background-attatchment" : "fixed"});
-
         if(forceSet) {
           setParallaxPosition($doc, multiplier, $object);
         } else {
@@ -258,16 +254,15 @@ user and predicts the occurrence of diabetics of a person, He also developed his
       };
       
       $(function(){
-        // Hero Section - Background Parallax
+       
         background_image_parallax($(".tm-parallax"), 0.30, false);
         background_image_parallax_2($("#contact"), 0.80);   
-        
-        // Handle window resize
+       
         window.addEventListener('resize', function(){
           background_image_parallax($(".tm-parallax"), 0.30, true);
         }, true);
 
-        // Detect window scroll and update navbar
+        
         $(window).scroll(function(e){          
           if($(document).scrollTop() > 120) {
             $('.tm-navbar').addClass("scroll");
@@ -280,12 +275,8 @@ user and predicts the occurrence of diabetics of a person, He also developed his
         $('#tmNav a').on('click', function(){
           $('.navbar-collapse').removeClass('show'); 
         })
-
-        // Scroll to corresponding section with animation
         $('#tmNav').singlePageNav();        
         
-        // Add smooth scrolling to all links
-        // https://www.w3schools.com/howto/howto_css_smooth_scroll.asp
         $("a").on('click', function(event) {
           if (this.hash !== "") {
             event.preventDefault();
